@@ -75,6 +75,7 @@ router.get('/me', auth, async (req, res) => {
     /*const value = bcrypt.compare(getOtp, user.otp);
   console.log(typeof value);*/
     console.log(user);
+    //OTP validate and expired check
     if (getOtp != user.otp || Date.now() - user.expiredTime > 1000 * 60 * 10)
       return res
         .status(401)
