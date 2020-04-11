@@ -6,11 +6,14 @@ const books = require('./routes/books');
 
 const app = express();
 
-
-
-mongoose.connect('mongodb://localhost/library', {useNewUrlParser: true, useUnifiedTopology: true})
-        .then(() => console.log('connected to Mongodb...'))
-        .catch(err => console.log('could not connect to Mongodb...'));
+mongoose
+  .connect('mongodb://localhost/library', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log('connected to Mongodb...'))
+  .catch((err) => console.log('could not connect to Mongodb...'));
 
 app.use(express.json());
 app.use('/api/users', users);
