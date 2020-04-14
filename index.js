@@ -16,6 +16,7 @@ mongoose
   .catch((err) => console.log('could not connect to Mongodb...'));
 
 app.use(express.json());
+app.use('/uploads/', express.static('uploads'));
 app.use('/api/users', users);
 app.use('/api/login', login);
 app.use('/api/books', books);
